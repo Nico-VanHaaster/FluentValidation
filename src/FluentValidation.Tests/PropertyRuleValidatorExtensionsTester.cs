@@ -36,7 +36,7 @@ namespace FluentValidation.Tests {
 			var result = validator.Validate(new Person {Surname = "Matthew Leibowitz"});
 			result.Errors.Single().ErrorMessage.ShouldEqual("foo");
 
-			validator.RemoveRule(x => x.Surname, typeof(LengthValidator));
+			//validator.RemoveRule(x => x.Surname, typeof(LengthValidator));
 
 			result = validator.Validate(new Person {Surname = "Matthew Leibowitz"});
 			Assert.Equal(0, result.Errors.Count);
@@ -49,7 +49,7 @@ namespace FluentValidation.Tests {
 			var result = validator.Validate(new Person {Surname = "Matthew Leibowitz"});
 			result.Errors.Single().ErrorMessage.ShouldEqual("foo");
 
-			validator.ReplaceRule(x => x.Surname, new LengthValidator(10, 20));
+			//validator.ReplaceRule(x => x.Surname, new LengthValidator(10, 20));
 
 			result = validator.Validate(new Person {Surname = "Matthew Leibowitz"});
 			Assert.Equal(0, result.Errors.Count);
@@ -62,7 +62,7 @@ namespace FluentValidation.Tests {
 			var result = validator.Validate(new Person { NameField = "Matthew Leibowitz" });
 			result.Errors.Single().ErrorMessage.ShouldEqual("foo");
 
-			validator.ReplaceRule(x => x.NameField, new LengthValidator(10, 20));
+			//validator.ReplaceRule(x => x.NameField, new LengthValidator(10, 20));
 
 			result = validator.Validate(new Person { NameField = "Matthew Leibowitz" });
 			Assert.Equal(0, result.Errors.Count);
@@ -75,7 +75,7 @@ namespace FluentValidation.Tests {
 			var result = validator.Validate(new Person {Surname = "Matthew Leibowitz"});
 			result.Errors.Single().ErrorMessage.ShouldEqual("foo");
 
-			validator.ClearRules(x => x.Surname);
+			//validator.ClearRules(x => x.Surname);
 
 			result = validator.Validate(new Person {Surname = "Matthew Leibowitz"});
 			Assert.Equal(0, result.Errors.Count);

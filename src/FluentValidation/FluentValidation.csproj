@@ -82,6 +82,86 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Internal\Compatibility.cs" />
     <Compile Include="IParameterValidatorFactory.cs" />
+    <Compile Include="Resources\Messages.cs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.cs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.da.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.da.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.fi.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.fi.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.it.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.it.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.ko.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.ko.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.mk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.mk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.nl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.nl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.pl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.pl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.pt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.pt.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.sv.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.sv.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.tr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.tr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.zh-CN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.zh-CN.resx</DependentUpon>
+    </Compile>
     <Compile Include="TaskHelpers\TaskHelpers.cs" />
     <Compile Include="TaskHelpers\TaskHelpersExtensions.cs" />
     <Compile Include="AssemblyScanner.cs" />
@@ -171,37 +251,69 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Messages.da.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.da.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Messages.cs.resx" />
-    <EmbeddedResource Include="Resources\Messages.fi.resx" />
-    <EmbeddedResource Include="Resources\Messages.mk.resx" />
-    <EmbeddedResource Include="Resources\Messages.ko.resx" />
+    <EmbeddedResource Include="Resources\Messages.cs.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.cs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.fi.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.fi.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.mk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.mk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.ko.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.ko.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.ru.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.ru.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.de.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.es.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.fr.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.fr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.it.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.it.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.zh-CN.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.nl.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.nl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.pl.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.pl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.pt.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.pt.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -210,9 +322,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.sv.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.sv.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.tr.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.tr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

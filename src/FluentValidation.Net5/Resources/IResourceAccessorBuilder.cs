@@ -1,7 +1,8 @@
 namespace FluentValidation.Resources {
-	using System;
-	using System.Reflection;
-	using Internal;
+    using System;
+    using System.Reflection;
+    using Internal;
+    using System.Linq;
 
     public class ResourceAccessor {
         public Func<string> Accessor { get; set; }
@@ -55,8 +56,25 @@ namespace FluentValidation.Resources {
 		/// to replace the type/name of the resource before the delegate is constructed.
 		/// </summary>
 		protected virtual PropertyInfo GetResourceProperty(ref Type resourceType, ref string resourceName) {
-			return resourceType.GetRuntimeProperty(resourceName);
-		}
+
+#if DNX
+            string nonRefName = resourceName;
+            var props = resourceType.GetTypeInfo().DeclaredProperties;
+
+            return props.FirstOrDefault(x => x.Name.Equals(nonRefName));
+
+
+            //var property = resourceType.GetProperties(BindingFlags.Static)
+            //                             .Where(prop => prop.Name.Equals(nonRefName))
+            //                             .FirstOrDefault();
+
+            //return property;
+            
+
+#else
+            return resourceType.GetRuntimeProperty(resourceName);
+#endif
+        }
 	}
 
 	/// <summary>

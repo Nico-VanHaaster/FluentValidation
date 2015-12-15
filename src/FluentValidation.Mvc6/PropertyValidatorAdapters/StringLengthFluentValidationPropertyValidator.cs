@@ -36,7 +36,7 @@
 
             string message = LengthValidator.ErrorMessageSource.GetString();
 
-            if (LengthValidator.ErrorMessageSource.ResourceType == PropertyValidatorHelpers.MessagesType)
+            if (LengthValidator.ErrorMessageSource.ResourceType == typeof(Messages))
             {
                 // If we're using the default resources then the mesage for length errors will have two parts, eg:
                 // '{PropertyName}' must be between {MinLength} and {MaxLength} characters. You entered {TotalLength} characters.

@@ -54,7 +54,7 @@ namespace FluentValidation.Internal
 
 		public static Func<string> CreateGetter(this PropertyInfo property)
 		{
-#if PORTABLE || CoreCLR
+#if PORTABLE || CoreCLR || DNX
 			return (Func<string>)property.GetMethod.CreateDelegate(typeof(Func<string>));
 #else
 			return (Func<string>)Delegate.CreateDelegate(typeof(Func<string>), property.GetGetMethod());

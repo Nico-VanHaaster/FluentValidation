@@ -110,13 +110,13 @@ namespace FluentValidation.Validators
         {
             // We want the integer parts as uint
             // C# doesn't permit int[] to uint[] conversion, but .NET does. This is somewhat evil...
-            return (uint[]) (object) decimal.GetBits(Decimal);
+            return (uint[])(object)decimal.GetBits(Decimal);
         }
 
         private static decimal GetMantissa(decimal Decimal)
         {
             var bits = GetBits(Decimal);
-            return (bits[2]*4294967296m*4294967296m) + (bits[1]*4294967296m) + bits[0];
+            return (bits[2] * 4294967296m * 4294967296m) + (bits[1] * 4294967296m) + bits[0];
         }
 
         private static uint GetUnsignedScale(decimal Decimal)
@@ -131,16 +131,16 @@ namespace FluentValidation.Validators
             uint scale = GetUnsignedScale(Decimal);
             if (IgnoreTrailingZeros.HasValue && IgnoreTrailingZeros.Value)
             {
-                return (int) (scale - NumTrailingZeros(Decimal));
+                return (int)(scale - NumTrailingZeros(Decimal));
             }
-            return (int) scale;
+            return (int)scale;
         }
 
         private static uint NumTrailingZeros(decimal Decimal)
         {
             uint trailingZeros = 0;
             uint scale = GetUnsignedScale(Decimal);
-            for (decimal tmp = GetMantissa(Decimal); tmp%10m == 0 && trailingZeros < scale; tmp /= 10)
+            for (decimal tmp = GetMantissa(Decimal); tmp % 10m == 0 && trailingZeros < scale; tmp /= 10)
             {
                 trailingZeros++;
             }
@@ -159,15 +159,15 @@ namespace FluentValidation.Validators
                 }
                 if (IgnoreTrailingZeros.HasValue && IgnoreTrailingZeros.Value)
                 {
-                    return (int) (precision - NumTrailingZeros(Decimal));
+                    return (int)(precision - NumTrailingZeros(Decimal));
                 }
             }
             else
             {
                 // Handle zero differently. It's odd.
-                precision = (uint) GetScale(Decimal) + 1;
+                precision = (uint)GetScale(Decimal) + 1;
             }
-            return (int) precision;
+            return (int)precision;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace FluentValidation.Mvc6.PropertyValidatorAdapters
 
             string message = RangeValidator.ErrorMessageSource.GetString();
 
-            if (RangeValidator.ErrorMessageSource.ResourceType == PropertyValidatorHelpers.MessagesType)
+            if (RangeValidator.ErrorMessageSource.ResourceType == typeof(Messages))
             {
                 // If we're using the default resources then the mesage for length errors will have two parts, eg:
                 // '{PropertyName}' must be between {From} and {To}. You entered {Value}.

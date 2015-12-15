@@ -40,9 +40,12 @@
                     .AppendPropertyName(Rule.GetDisplayName())
                     .AppendArgument("ComparisonValue", comparisonDisplayName);
 
-
                 string message = formatter.BuildMessage(EqualValidator.ErrorMessageSource.GetString());
-                yield return new ModelClientValidationEqualToRule(message, propertyToCompare.Name);
+
+                var rule = new ModelClientValidationRule("equalto", message);
+                rule.ValidationParameters.Add("other", string.Format("*.{0}", propertyToCompare.Name));
+
+                yield return rule;
             }
         }
 

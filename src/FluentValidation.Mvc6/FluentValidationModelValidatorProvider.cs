@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 
@@ -79,7 +80,9 @@ namespace FluentValidation.Mvc6
         /// <param name="context"></param>
         public void GetValidators(ModelValidatorProviderContext context)
         {
-            foreach (var validator in GetValidators(context.ModelMetadata))
+            bool shouldAddRequiredValidator = !(context.Validators.Any(x => x.GetType().Equals(typeof(RequiredAttributeAdapter))));
+
+            foreach (var validator in GetValidators(context.ModelMetadata, shouldAddRequiredValidator))
                 context.Validators.Add(validator);
         }
 
@@ -89,8 +92,11 @@ namespace FluentValidation.Mvc6
         /// <param name="context"></param>
         public void GetValidators(ClientValidatorProviderContext context)
         {
-            foreach (var validator in GetValidators(context.ModelMetadata).OfType<IClientModelValidator>())
+            bool shouldAddRequiredValidator = !(context.Validators.Any(x => x.GetType().Equals(typeof(RequiredAttributeAdapter))));
+            foreach (var validator in GetValidators(context.ModelMetadata, shouldAddRequiredValidator).OfType<IClientModelValidator>())
             {
+                
+
                 context.Validators.Add(validator);
             }
         }
@@ -100,13 +106,13 @@ namespace FluentValidation.Mvc6
         /// </summary>
         /// <param name="metadata"></param>
         /// <returns></returns>
-        protected virtual IEnumerable<IModelValidator> GetValidators(ModelMetadata metadata)
+        protected virtual IEnumerable<IModelValidator> GetValidators(ModelMetadata metadata, bool shouldAddRequiredValidator)
         {
             IValidator validator = CreateValidator(metadata);
             List<IModelValidator> validators = new List<IModelValidator>();
             if (IsValidatingProperty(metadata))
             {
-                var propertyValidators = GetValidatorsForProperty(metadata, validator);
+                var propertyValidators = GetValidatorsForProperty(metadata, validator, shouldAddRequiredValidator);
                 validators.AddRange(propertyValidators);
                 return validators;
             }
@@ -161,7 +167,7 @@ namespace FluentValidation.Mvc6
         /// <param name="modelValidationContext"></param>
         /// <param name="validator"></param>
         /// <returns></returns>
-        IEnumerable<IModelValidator> GetValidatorsForProperty(ModelMetadata metadata, IValidator validator)
+        IEnumerable<IModelValidator> GetValidatorsForProperty(ModelMetadata metadata, IValidator validator, bool shouldAddRequiredValidator)
         {
             var modelValidators = new List<IModelValidator>();
 
@@ -183,7 +189,7 @@ namespace FluentValidation.Mvc6
                 modelValidators.AddRange(validatorsWithRules);
             }
 
-            if (validator != null && metadata.IsRequired && AddImplicitRequiredValidator)
+            if (validator != null && metadata.IsRequired && shouldAddRequiredValidator && AddImplicitRequiredValidator)
             {
                 bool hasRequiredValidators = modelValidators.Any(x => x.IsRequired);
 
